@@ -34,18 +34,109 @@
       "scope_permissions": [],
       "system_permissions": []
     },
+    "leave_elm": {
+      "grants": {
+        "Employee": [
+          "leave_elm.application.apply",
+          "leave_elm.application.view",
+          "leave_elm.balance.view"
+        ],
+        "Leave Admin": [
+          "leave_elm.application.view",
+          "leave_elm.balance.view",
+          "leave_elm.policy.manage"
+        ],
+        "Leave Approver": [
+          "leave_elm.application.approve",
+          "leave_elm.application.view",
+          "leave_elm.balance.view"
+        ]
+      },
+      "module_grants": [
+        "Employee",
+        "Leave Admin",
+        "Leave Approver"
+      ],
+      "nav": {
+        "base_path": "/leave",
+        "icon": "CalendarBlank",
+        "items": [
+          {
+            "code": "leave.apply",
+            "icon": "PencilSimple",
+            "label": "Apply for Leave",
+            "required_permission": "leave_elm.application.apply",
+            "sort_order": 10,
+            "to": "/leave/apply"
+          },
+          {
+            "code": "leave.mine",
+            "icon": "ListChecks",
+            "label": "My Applications",
+            "required_permission": "leave_elm.application.view",
+            "sort_order": 20,
+            "to": "/leave/mine"
+          },
+          {
+            "code": "leave.balance",
+            "icon": "Scales",
+            "label": "Leave Balance",
+            "required_permission": "leave_elm.balance.view",
+            "sort_order": 30,
+            "to": "/leave/balance"
+          },
+          {
+            "code": "leave.approvals",
+            "icon": "UserCheck",
+            "label": "Approvals",
+            "required_permission": "leave_elm.application.view",
+            "sort_order": 40,
+            "to": "/leave/approvals"
+          },
+          {
+            "code": "leave.admin",
+            "icon": "Gear",
+            "label": "Leave Admin",
+            "required_permission": "leave_elm.policy.manage",
+            "sort_order": 50,
+            "to": "/leave/admin"
+          }
+        ],
+        "label": "Employee Leave Management",
+        "nav_section": "Leave",
+        "sort_order": 25,
+        "status": "active"
+      },
+      "permissions": [
+        {
+          "code": "leave_elm.application.view",
+          "label": "View own leave applications"
+        },
+        {
+          "code": "leave_elm.application.apply",
+          "label": "Apply for or withdraw leave"
+        },
+        {
+          "code": "leave_elm.application.approve",
+          "label": "Review assigned leave applications"
+        },
+        {
+          "code": "leave_elm.balance.view",
+          "label": "View own leave balances"
+        },
+        {
+          "code": "leave_elm.policy.manage",
+          "label": "Configure ELM employee profiles and balances"
+        }
+      ],
+      "scope_permissions": [],
+      "system_permissions": []
+    },
     "placement_cell": {
       "grants": {
         "Dean Academic": [
           "placement_cell.academic_directory.view",
           "placement_cell.announcement.publish",
-          "placement_cell.application.view",
-          "placement_cell.job_posting.view",
-          "placement_cell.report.view"
-        ],
-        "acadadmin": [
-          "placement_cell.academic_directory.view",
-          "placement_cell.application.review",
           "placement_cell.application.view",
           "placement_cell.job_posting.view",
           "placement_cell.report.view"
@@ -91,12 +182,109 @@
       },
       "module_grants": [
         "Dean Academic",
-        "acadadmin",
         "placement_chairman",
         "placement_coordinator",
         "placement_officer",
         "student"
       ],
+      "nav": {
+        "base_path": "/placement",
+        "icon": "Briefcase",
+        "items": [
+          {
+            "code": "placement.registration",
+            "icon": "Checks",
+            "label": "Season Registration",
+            "required_permission": "placement_cell.registration.self",
+            "sort_order": 5,
+            "to": "/placement/registration"
+          },
+          {
+            "code": "placement.postings",
+            "icon": "ClipboardText",
+            "label": "Opportunities",
+            "required_permission": "placement_cell.job_posting.view",
+            "sort_order": 10,
+            "to": "/placement/postings"
+          },
+          {
+            "code": "placement.mine",
+            "icon": "UserCheck",
+            "label": "My Applications",
+            "required_permission": "placement_cell.application.view_self",
+            "sort_order": 20,
+            "to": "/placement/mine"
+          },
+          {
+            "code": "placement.offers",
+            "icon": "Signature",
+            "label": "My Offers",
+            "required_permission": "placement_cell.offer.respond",
+            "sort_order": 30,
+            "to": "/placement/offers"
+          },
+          {
+            "code": "placement.applications",
+            "icon": "Users",
+            "label": "Applications",
+            "required_permission": "placement_cell.application.view",
+            "sort_order": 50,
+            "to": "/placement/applications"
+          },
+          {
+            "code": "placement.registrations",
+            "icon": "Checks",
+            "label": "Registrations",
+            "required_permission": "placement_cell.registration.manage",
+            "sort_order": 55,
+            "to": "/placement/registration-approvals"
+          },
+          {
+            "code": "placement.companies",
+            "icon": "Buildings",
+            "label": "Companies",
+            "required_permission": "placement_cell.company.manage",
+            "sort_order": 60,
+            "to": "/placement/companies"
+          },
+          {
+            "code": "placement.interviews",
+            "icon": "CalendarBlank",
+            "label": "Interviews",
+            "required_permission": "placement_cell.interview.schedule",
+            "sort_order": 70,
+            "to": "/placement/interviews"
+          },
+          {
+            "code": "placement.announcements",
+            "icon": "Megaphone",
+            "label": "Announcements",
+            "required_permission": "placement_cell.announcement.publish",
+            "sort_order": 80,
+            "to": "/placement/announcements"
+          },
+          {
+            "code": "placement.cpi",
+            "icon": "GraduationCap",
+            "label": "Student CPI",
+            "required_permission": "placement_cell.academic_directory.view",
+            "sort_order": 85,
+            "to": "/placement/students-cpi"
+          },
+          {
+            "code": "placement.reports",
+            "icon": "ChartBar",
+            "label": "Reports",
+            "required_permission": "placement_cell.report.view",
+            "sort_order": 90,
+            "to": "/placement/reports"
+          }
+        ],
+        "label": "Placement Cell",
+        "nav_section": "Placement",
+        "sort_order": 10,
+        "status": "active"
+      },
       "permissions": [
         {
           "code": "placement_cell.job_posting.view",
@@ -190,5 +378,6 @@
       ]
     }
   },
-  "version": 1
+  "publisher": "integrated",
+  "version": 2
 }
